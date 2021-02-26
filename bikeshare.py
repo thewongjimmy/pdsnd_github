@@ -20,6 +20,11 @@ def run_time(time_start):
     print("\nThis took %s seconds." % (time.time() - time_start))
 
 
+def divider():
+    """ print divider line """
+    print('-'*40)
+
+
 def get_filters():
     """
     Asks user to specify a city, month, and day to analyze.
@@ -64,7 +69,7 @@ def get_filters():
         except:
             print("Please enter a valid day of the week (all, monday, tuesday, ... sunday).")
 
-    print('-'*40)
+    divider()
     return city, month, day
 
 
@@ -133,7 +138,7 @@ def time_stats(df):
 
     run_time(start_time)
 
-    print('-'*40)
+    divider()
 
 
 def station_stats(df):
@@ -162,7 +167,7 @@ def station_stats(df):
 
     run_time(start_time)
 
-    print('-'*40)
+    divider()
 
 
 def trip_duration_stats(df):
@@ -184,7 +189,7 @@ def trip_duration_stats(df):
 
     run_time(start_time)
 
-    print('-'*40)
+    divider()
 
 
 def user_stats(df):
@@ -220,7 +225,7 @@ def user_stats(df):
 
     run_time(start_time)
 
-    print('-'*40)
+    divider()
 
 def show_raw(df):
     """Displays raw data 5 lines at a time."""
@@ -238,7 +243,7 @@ def show_raw(df):
             print(df[raw_line:raw_line+5])
             raw_line+=5
 
-    print('-'*40)
+    divider()
 
 
 def restart():
