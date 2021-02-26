@@ -1,3 +1,6 @@
+#Bikehare Project for Udacity Programming for Data Science Nanodegree
+#by Jimmy Wong
+
 import time
 import pandas as pd
 import numpy as np
