@@ -4,7 +4,7 @@
 2021-02-25
 
 ### Project Title
-Bikeshare Project
+Bikeshare Project (Udacity)
 
 ### Description
 This Bikeshare Project was created for the Udacity Programming for Data Science Nanodegree program.  The code takes in input in regards to city, month, and day of the week provided by user and provides related bike share system information and descriptive statistics.
@@ -16,3 +16,4 @@ README.md
 ### Credits
 Data adapted by Udacity from:  https://www.motivateco.com/
 GitHub repository forked from:  https://github.com/udacity/pdsnd_github
+Udacity Programming for Data Science Nanodegree:  https://www.udacity.com/course/programming-for-data-science-nanodegree--nd104
