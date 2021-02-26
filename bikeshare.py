@@ -8,6 +8,18 @@ CITY_DATA = { 'chicago': 'chicago.csv',
               'washington': 'washington.csv' }
 
 
+def run_time(time_start):
+    """
+
+    Let user know how long the function took to run
+
+    Args:
+        (float) time_start - time stamp when function begins running
+
+    """
+    print("\nThis took %s seconds." % (time.time() - time_start))
+
+
 def get_filters():
     """
     Asks user to specify a city, month, and day to analyze.
@@ -119,8 +131,8 @@ def time_stats(df):
     # display the most common start hour
     print('Most Popular Start Hour:', popular_hour)
 
-    # let user know how long the function took to run
-    print("\nThis took %s seconds." % (time.time() - start_time))
+    run_time(start_time)
+
     print('-'*40)
 
 
@@ -148,8 +160,8 @@ def station_stats(df):
     # display most frequent combination of start station and end station trip
     print('Most Popular Station Combo:', popular_station_combo)
 
-    # let user know how long the function took to run
-    print("\nThis took %s seconds." % (time.time() - start_time))
+    run_time(start_time)
+
     print('-'*40)
 
 
@@ -170,7 +182,8 @@ def trip_duration_stats(df):
     # display mean travel time
     print('Mean Travel Time (seconds):', mean_travel_time)
 
-    print("\nThis took %s seconds." % (time.time() - start_time))
+    run_time(start_time)
+
     print('-'*40)
 
 
@@ -205,8 +218,8 @@ def user_stats(df):
     except:
         print("\nNo Birth Year data available.")
 
-    # display earliest, most recent, and most common year of birth
-    print("\nThis took %s seconds." % (time.time() - start_time))
+    run_time(start_time)
+
     print('-'*40)
 
 def show_raw(df):
