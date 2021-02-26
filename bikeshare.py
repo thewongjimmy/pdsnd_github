@@ -11,6 +11,23 @@ CITY_DATA = { 'chicago': 'chicago.csv',
               'washington': 'washington.csv' }
 
 
+def run_time(time_start):
+    """
+
+    Let user know how long the function took to run
+
+    Args:
+        (float) time_start - time stamp when function begins running
+
+    """
+    print("\nThis took %s seconds." % (time.time() - time_start))
+
+
+def divider():
+    """ print divider line """
+    print('-'*40)
+
+
 def get_filters():
     """
     Asks user to specify a city, month, and day to analyze.
@@ -55,7 +72,7 @@ def get_filters():
         except:
             print("Please enter a valid day of the week (all, monday, tuesday, ... sunday).")
 
-    print('-'*40)
+    divider()
     return city, month, day
 
 
@@ -122,9 +139,9 @@ def time_stats(df):
     # display the most common start hour
     print('Most Popular Start Hour:', popular_hour)
 
-    # let user know how long the function took to run
-    print("\nThis took %s seconds." % (time.time() - start_time))
-    print('-'*40)
+    run_time(start_time)
+
+    divider()
 
 
 def station_stats(df):
@@ -151,9 +168,9 @@ def station_stats(df):
     # display most frequent combination of start station and end station trip
     print('Most Popular Station Combo:', popular_station_combo)
 
-    # let user know how long the function took to run
-    print("\nThis took %s seconds." % (time.time() - start_time))
-    print('-'*40)
+    run_time(start_time)
+
+    divider()
 
 
 def trip_duration_stats(df):
@@ -173,8 +190,9 @@ def trip_duration_stats(df):
     # display mean travel time
     print('Mean Travel Time (seconds):', mean_travel_time)
 
-    print("\nThis took %s seconds." % (time.time() - start_time))
-    print('-'*40)
+    run_time(start_time)
+
+    divider()
 
 
 def user_stats(df):
@@ -208,9 +226,9 @@ def user_stats(df):
     except:
         print("\nNo Birth Year data available.")
 
-    # display earliest, most recent, and most common year of birth
-    print("\nThis took %s seconds." % (time.time() - start_time))
-    print('-'*40)
+    run_time(start_time)
+
+    divider()
 
 def show_raw(df):
     """Displays raw data 5 lines at a time."""
@@ -228,10 +246,26 @@ def show_raw(df):
             print(df[raw_line:raw_line+5])
             raw_line+=5
 
-    print('-'*40)
+    divider()
+
+
+def restart():
+    """
+
+    Restart the program based on user input.
+
+    Function must operate inside loop 'while True:'
+
+    Runs quit() function to terminate program if user input is not 'yes'
+
+    """
+    restart = input('\nWould you like to restart? Enter yes or no.\n')
+    if restart.lower() != 'yes':
+        quit()
+
 
 def main():
-    """Main function including user input for raw data or restart option."""
+    """Main function to retrieve user input and return requested info."""
     while True:
         city, month, day = get_filters()
         df = load_data(city, month, day)
@@ -242,10 +276,7 @@ def main():
         user_stats(df)
         show_raw(df)
 
-        #ask user if they'd like to restart
-        restart = input('\nWould you like to restart? Enter yes or no.\n')
-        if restart.lower() != 'yes':
-            break
+        restart()
 
 
 if __name__ == "__main__":
